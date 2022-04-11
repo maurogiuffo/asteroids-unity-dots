@@ -1,11 +1,15 @@
-using UnityEngine;
 using Unity.Entities;
+using UnityEngine;
 
-[GenerateAuthoringComponent]
-public struct InputData : IComponentData
+namespace Data
 {
-    public KeyCode upKey;
-    public KeyCode downKey;
-    public KeyCode rightKey;
-    public KeyCode leftKey;
+    [GenerateAuthoringComponent]
+    public struct InputData : IComponentData
+    {
+        public KeyCode upKey;
+        public KeyCode downKey;
+        public KeyCode rightKey;
+        public KeyCode leftKey;
+        public KeyCode fireKey;
+    }
 }

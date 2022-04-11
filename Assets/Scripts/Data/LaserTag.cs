@@ -3,8 +3,7 @@
 namespace Data
 {
     [GenerateAuthoringComponent]
-    public struct PrefabEntityComponent: IComponentData
+    public struct LaserTag: IComponentData
     {
-        public Entity Prefab;
     }
 }
