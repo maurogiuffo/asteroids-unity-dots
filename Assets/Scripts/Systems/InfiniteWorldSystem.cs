@@ -9,19 +9,19 @@ namespace Systems
         protected override void OnUpdate()
         {
             var camera = Camera.main;
-            var areaHeight  = camera.orthographicSize *2f;
+            var areaHeight = camera.orthographicSize * 2f;
             var areaWidth = areaHeight * camera.aspect;
-            
+
             Entities.ForEach((ref Translation position) =>
             {
                 if (position.Value.x > areaWidth * 0.5f)
                     position.Value.x += -areaWidth;
-                if (position.Value.x < - areaWidth * 0.5f)
+                if (position.Value.x < -areaWidth * 0.5f)
                     position.Value.x += areaWidth;
 
-                if (position.Value.y >  areaHeight * 0.5f)
+                if (position.Value.y > areaHeight * 0.5f)
                     position.Value.y += -areaHeight;
-                if (position.Value.y < - areaHeight * 0.5f)
+                if (position.Value.y < -areaHeight * 0.5f)
                     position.Value.y += areaHeight;
             }).Schedule();
         }
