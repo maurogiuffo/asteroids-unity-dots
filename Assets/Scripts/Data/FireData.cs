@@ -1,5 +1,4 @@
 ﻿using Unity.Entities;
-using Unity.Mathematics;
 
 namespace Data
 {
@@ -7,5 +6,6 @@ namespace Data
     public struct FireData: IComponentData
     {
         public bool fire;
+        public float time;
     }
 }

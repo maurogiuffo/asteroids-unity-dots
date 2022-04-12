@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fire: 0
+  time: 0.1
 --- !u!114 &-1905380156798167064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,8 +294,8 @@ MonoBehaviour:
     y: 0
     z: 0
   m_PrimitiveSize:
-    x: 1
-    y: 1
+    x: 0.82
+    y: 0.64
     z: 1
   m_PrimitiveOrientation:
     Value:
@@ -304,11 +305,11 @@ MonoBehaviour:
     RotationOrder: 4
   m_Capsule:
     Height: 1
-    Radius: 0.5
+    Radius: 0.41
     Axis: 2
   m_Cylinder:
     Height: 1
-    Radius: 0.5
+    Radius: 0.41
     Axis: 2
   m_CylinderSideCount: 20
   m_SphereRadius: 0.5

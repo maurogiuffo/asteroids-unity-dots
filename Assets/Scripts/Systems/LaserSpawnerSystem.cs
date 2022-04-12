@@ -8,21 +8,24 @@ namespace Systems
 {
     public class LaserSpawnerSystem : ComponentSystem
     {
+        private float timer;
+
         protected override void OnUpdate()
         {
+            timer -= Time.DeltaTime;
+            if (timer < 0) timer = 0;
             Entities
                 .ForEach((ref PrefabEntityComponent prefabEntityComponent, ref FireData fireData,
                     ref Translation translation, ref Rotation rotation) =>
                 {
-                    if (fireData.fire)
-                    {
-                        var spawned = EntityManager.Instantiate(prefabEntityComponent.Prefab);
-                        EntityManager.SetComponentData(spawned, new Translation {Value = translation.Value});
-                        EntityManager.SetComponentData(spawned, new Rotation() {Value = rotation.Value});
-                        var velocity = math.mul(rotation.Value, new float3(0, 1, 0)) * 5;
-                        EntityManager.SetComponentData(spawned, new PhysicsVelocity() {Linear = velocity});
-                        EntityManager.SetComponentData(spawned, new LaserLifeTime() {value = 2});
-                    }
+                    if (!fireData.fire || !timer.Equals(0)) return;
+                    timer = fireData.time;
+                    var spawned = EntityManager.Instantiate(prefabEntityComponent.Prefab);
+                    EntityManager.SetComponentData(spawned, new Translation {Value = translation.Value});
+                    EntityManager.SetComponentData(spawned, new Rotation() {Value = rotation.Value});
+                    var velocity = math.mul(rotation.Value, new float3(0, 1, 0)) * 5;
+                    EntityManager.SetComponentData(spawned, new PhysicsVelocity() {Linear = velocity});
+                    EntityManager.SetComponentData(spawned, new LaserLifeTime() {value = 2});
                 });
         }
     }

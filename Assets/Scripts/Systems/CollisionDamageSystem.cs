@@ -19,7 +19,7 @@ namespace Systems
             base.OnCreate();
         }
 
-        private struct ApplierJob : ITriggerEventsJob
+        private struct ApplyDamageJob : ITriggerEventsJob
         {
             public ComponentDataFromEntity<DamageData> damageGruop;
             public ComponentDataFromEntity<HealthData> healthGruop;
@@ -37,12 +37,13 @@ namespace Systems
                 var healthData = healthGruop[entityB];
                 healthData.isDead = true;
                 healthGruop[entityB] = healthData;
+                
             }
         }
         
         protected override JobHandle OnUpdate(JobHandle inputDeps)
         {
-            var applicationJob = new ApplierJob
+            var applicationJob = new ApplyDamageJob
             {
                 damageGruop = GetComponentDataFromEntity<DamageData>(),
                 healthGruop = GetComponentDataFromEntity<HealthData>(),

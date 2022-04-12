@@ -1,7 +1,6 @@
 ﻿using Data;
 using Unity.Entities;
 using Unity.Jobs;
-using UnityEngine;
 
 namespace Systems
 {
