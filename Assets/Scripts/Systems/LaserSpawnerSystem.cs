@@ -3,7 +3,6 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Physics;
 using Unity.Transforms;
-using UnityEngine;
 
 namespace Systems
 {
@@ -20,11 +19,11 @@ namespace Systems
                         var spawned = EntityManager.Instantiate(prefabEntityComponent.Prefab);
                         EntityManager.SetComponentData(spawned, new Translation {Value = translation.Value});
                         EntityManager.SetComponentData(spawned, new Rotation() {Value = rotation.Value});
-                        var velocity =  math.mul(rotation.Value, new float3(0, 1, 0)) * 5;
+                        var velocity = math.mul(rotation.Value, new float3(0, 1, 0)) * 5;
                         EntityManager.SetComponentData(spawned, new PhysicsVelocity() {Linear = velocity});
+                        EntityManager.SetComponentData(spawned, new LaserLifeTime() {value = 2});
                     }
                 });
-                
         }
     }
 }
