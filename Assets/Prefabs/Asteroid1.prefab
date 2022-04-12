@@ -14,8 +14,10 @@ GameObject:
   - component: {fileID: -482836140700426281}
   - component: {fileID: -4625627427087932798}
   - component: {fileID: -530519393680515221}
+  - component: {fileID: -7047373520024026936}
+  - component: {fileID: 7409346783372754520}
   m_Layer: 0
-  m_Name: Asteroid
+  m_Name: Asteroid1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +156,7 @@ MonoBehaviour:
     y: 0
     z: 0
   m_PrimitiveSize:
-    x: 0.79
+    x: 0.91
     y: 0.79
     z: 1
   m_PrimitiveOrientation:
@@ -165,12 +167,12 @@ MonoBehaviour:
     RotationOrder: 4
   m_Capsule:
     Height: 1
-    Radius: 0.395
+    Radius: 0.455
     Axis: 2
   m_Cylinder:
-    Height: 1
-    Radius: 0.395
-    Axis: 2
+    Height: 0.79
+    Radius: 0.5
+    Axis: 1
   m_CylinderSideCount: 20
   m_SphereRadius: 0.5
   m_MinimumSkinnedVertexWeight: 0.1
@@ -304,3 +306,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421c2fac77ef43088a7e10cc80518dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageApplied: 0
+--- !u!114 &-7047373520024026936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2859033607849182490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3728973c49f84564b1ceb872a5025d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7409346783372754520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2859033607849182490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c88659012b8431ab03d9b2ab98a8805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0

@@ -24,12 +24,12 @@ namespace Systems
             spawnTimer = 50;
 
             Entities
-                .WithAll<AsteroidSpawnerTag>()
+                .WithAll<AsteroidTypeData>()
                 .ForEach((ref PrefabEntityComponent prefabEntityComponent) =>
                 {
                     for (int i = 0; i < spawnCount; i++)
                     {
-                        var spawned = EntityManager.Instantiate(prefabEntityComponent.Prefab);
+                        var spawned = EntityManager.Instantiate(prefabEntityComponent.Asteroid1);
                         var position = new float3(random.NextInt(-10, 10), random.NextFloat(-10, 10), 0);
                         EntityManager.SetComponentData(spawned, new Translation {Value = position});
                         var lVelocity = new float3(random.NextFloat(-1f, 1f), random.NextFloat(-1f, 1f), 0);

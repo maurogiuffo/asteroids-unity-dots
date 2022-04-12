@@ -3,7 +3,8 @@
 namespace Data
 {
     [GenerateAuthoringComponent]
-    public struct AsteroidSpawnerTag: IComponentData
+    public struct AsteroidTypeData: IComponentData
     {
+        public int type;
     }
 }

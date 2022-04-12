@@ -12,21 +12,24 @@ namespace Systems
 
         protected override void OnUpdate()
         {
+            var prefabSource = GetEntityQuery(ComponentType.ReadOnly<PrefabEntityComponent>())
+                .GetSingletonEntity();
+            var prefab = GetComponentDataFromEntity<PrefabEntityComponent>(true)[prefabSource].Laser;
+
             timer -= Time.DeltaTime;
             if (timer < 0) timer = 0;
-            Entities
-                .ForEach((ref PrefabEntityComponent prefabEntityComponent, ref FireData fireData,
-                    ref Translation translation, ref Rotation rotation) =>
-                {
-                    if (!fireData.fire || !timer.Equals(0)) return;
-                    timer = fireData.time;
-                    var spawned = EntityManager.Instantiate(prefabEntityComponent.Prefab);
-                    EntityManager.SetComponentData(spawned, new Translation {Value = translation.Value});
-                    EntityManager.SetComponentData(spawned, new Rotation() {Value = rotation.Value});
-                    var velocity = math.mul(rotation.Value, new float3(0, 1, 0)) * 5;
-                    EntityManager.SetComponentData(spawned, new PhysicsVelocity() {Linear = velocity});
-                    EntityManager.SetComponentData(spawned, new LaserLifeTime() {value = 2});
-                });
+            
+            Entities.ForEach((ref FireData fireData, ref Translation translation, ref Rotation rotation) =>
+            {
+                if (!fireData.fire || !timer.Equals(0)) return;
+                timer = fireData.time;
+                var spawned = EntityManager.Instantiate(prefab);
+                EntityManager.SetComponentData(spawned, new Translation {Value = translation.Value});
+                EntityManager.SetComponentData(spawned, new Rotation() {Value = rotation.Value});
+                var velocity = math.mul(rotation.Value, new float3(0, 1, 0)) * 5;
+                EntityManager.SetComponentData(spawned, new PhysicsVelocity() {Linear = velocity});
+                EntityManager.SetComponentData(spawned, new LaserLifeTime() {value = 2});
+            });
         }
     }
 }

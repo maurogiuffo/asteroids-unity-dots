@@ -6,7 +6,7 @@ using Unity.Physics.Systems;
 
 namespace Systems
 {
-    [UpdateBefore(typeof(DestroyDeadSystem))]
+    [UpdateBefore(typeof(SubdivideAsteroidSystem))]
     public class CollisionDamageSystem : JobComponentSystem
     {
         private BuildPhysicsWorld buildPhysicsWorld;
@@ -33,11 +33,14 @@ namespace Systems
             private void Exec(Entity entityA, Entity entityB)
             {
                 if (!damageGruop.HasComponent(entityA)) return;
+                var damageData = damageGruop[entityA];
+                if (damageData.damageApplied) return;
+                damageData.damageApplied = true;
+                damageGruop[entityA] = damageData;
                 if (!healthGruop.HasComponent(entityB)) return;
                 var healthData = healthGruop[entityB];
                 healthData.isDead = true;
                 healthGruop[entityB] = healthData;
-                
             }
         }
         

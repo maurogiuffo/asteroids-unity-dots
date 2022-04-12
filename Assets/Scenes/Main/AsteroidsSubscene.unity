@@ -153,7 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d56d8326844fdfb368f6f3f392f758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 2859033607849182490, guid: 9bc754dd9cadf474bb5184e993b83af6, type: 3}
+  Asteroid1: {fileID: 2859033607849182490, guid: 9bc754dd9cadf474bb5184e993b83af6, type: 3}
+  Asteroid2: {fileID: 9018891194525192286, guid: 0a74a2b53359f324fac18153d9200128, type: 3}
+  Asteroid3: {fileID: 6218459675601991853, guid: 054f328675c7884408fc169cf0f44c3c, type: 3}
+  Laser: {fileID: 1269320638447306496, guid: 38c8967b51fcde54496d44253b70d52e, type: 3}
 --- !u!4 &41436629
 Transform:
   m_ObjectHideFlags: 0
@@ -180,3 +183,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c88659012b8431ab03d9b2ab98a8805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0

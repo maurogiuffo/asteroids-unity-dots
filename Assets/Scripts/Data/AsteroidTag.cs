@@ -3,8 +3,7 @@
 namespace Data
 {
     [GenerateAuthoringComponent]
-    public struct DamageData: IComponentData
+    public struct AsteroidTag: IComponentData
     {
-        public bool damageApplied;
     }
 }
