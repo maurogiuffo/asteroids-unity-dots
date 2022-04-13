@@ -33,14 +33,17 @@ namespace Systems
             private void Exec(Entity entityA, Entity entityB)
             {
                 if (!damageGruop.HasComponent(entityA)) return;
-                var damageData = damageGruop[entityA];
-                if (damageData.damageApplied) return;
-                damageData.damageApplied = true;
-                damageGruop[entityA] = damageData;
                 if (!healthGruop.HasComponent(entityB)) return;
+                var damageData = damageGruop[entityA];
                 var healthData = healthGruop[entityB];
+                if(healthData.isDead) return;
+                if (damageData.damageApplied) return;
+                
                 healthData.isDead = true;
                 healthGruop[entityB] = healthData;
+
+                damageData.damageApplied = true;
+                damageGruop[entityA] = damageData;
             }
         }
         

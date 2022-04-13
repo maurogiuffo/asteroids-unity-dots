@@ -19,12 +19,18 @@ namespace Systems
 
         protected override void OnUpdate()
         {
-            spawnTimer -= Time.DeltaTime;
+            EntityQuery query = GetEntityQuery(
+                ComponentType.ReadOnly<AsteroidTag>()
+            );
+            int count = query.CalculateEntityCount();
+            
+            if(count > 0) return;
+            
+            /*spawnTimer -= Time.DeltaTime;
             if (spawnTimer > 0) return;
-            spawnTimer = 50;
-
+            spawnTimer = 50;*/
+            
             Entities
-                .WithAll<AsteroidTypeData>()
                 .ForEach((ref PrefabEntityComponent prefabEntityComponent) =>
                 {
                     for (int i = 0; i < spawnCount; i++)
