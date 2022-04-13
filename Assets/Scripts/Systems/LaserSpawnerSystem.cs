@@ -19,14 +19,14 @@ namespace Systems
             timer -= Time.DeltaTime;
             if (timer < 0) timer = 0;
             
-            Entities.ForEach((ref FireData fireData, ref Translation translation, ref Rotation rotation) =>
+            Entities.ForEach((ref FireData fireData, ref Translation translation, ref Rotation rotation, ref PhysicsVelocity shipVelocity) =>
             {
                 if (!fireData.fire || !timer.Equals(0)) return;
                 timer = fireData.time;
                 var spawned = EntityManager.Instantiate(prefab);
                 EntityManager.SetComponentData(spawned, new Translation {Value = translation.Value});
                 EntityManager.SetComponentData(spawned, new Rotation() {Value = rotation.Value});
-                var velocity = math.mul(rotation.Value, new float3(0, 1, 0)) * 5;
+                var velocity = math.mul(rotation.Value, new float3(0, 1, 0)) * 5 + shipVelocity.Linear;
                 EntityManager.SetComponentData(spawned, new PhysicsVelocity() {Linear = velocity});
                 EntityManager.SetComponentData(spawned, new LaserLifeTime() {value = 2});
             });
