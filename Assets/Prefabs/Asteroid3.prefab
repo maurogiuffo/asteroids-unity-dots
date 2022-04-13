@@ -7,6 +7,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -482836140700426281, guid: 9bc754dd9cadf474bb5184e993b83af6, type: 3}
+      propertyPath: m_Cylinder.Axis
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -482836140700426281, guid: 9bc754dd9cadf474bb5184e993b83af6, type: 3}
+      propertyPath: m_Capsule.Radius
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: -482836140700426281, guid: 9bc754dd9cadf474bb5184e993b83af6, type: 3}
+      propertyPath: m_Cylinder.Height
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -482836140700426281, guid: 9bc754dd9cadf474bb5184e993b83af6, type: 3}
+      propertyPath: m_Cylinder.Radius
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: -482836140700426281, guid: 9bc754dd9cadf474bb5184e993b83af6, type: 3}
+      propertyPath: m_PrimitiveSize.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -482836140700426281, guid: 9bc754dd9cadf474bb5184e993b83af6, type: 3}
+      propertyPath: m_PrimitiveSize.y
+      value: 0.21
+      objectReference: {fileID: 0}
     - target: {fileID: 2859033607849182488, guid: 9bc754dd9cadf474bb5184e993b83af6, type: 3}
       propertyPath: m_Sprite
       value: 
