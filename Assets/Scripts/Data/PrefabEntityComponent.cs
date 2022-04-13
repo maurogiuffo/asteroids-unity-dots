@@ -9,5 +9,6 @@ namespace Data
         public Entity Asteroid2;
         public Entity Asteroid3;
         public Entity Laser;
+        public Entity Spaceship;
     }
 }

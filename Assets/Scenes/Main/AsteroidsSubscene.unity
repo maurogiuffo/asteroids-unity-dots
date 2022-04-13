@@ -157,6 +157,7 @@ MonoBehaviour:
   Asteroid2: {fileID: 9018891194525192286, guid: 0a74a2b53359f324fac18153d9200128, type: 3}
   Asteroid3: {fileID: 6218459675601991853, guid: 054f328675c7884408fc169cf0f44c3c, type: 3}
   Laser: {fileID: 1269320638447306496, guid: 38c8967b51fcde54496d44253b70d52e, type: 3}
+  Spaceship: {fileID: 1547874838188539256, guid: 6bac1c8971595544ba68aaf381679501, type: 3}
 --- !u!4 &41436629
 Transform:
   m_ObjectHideFlags: 0

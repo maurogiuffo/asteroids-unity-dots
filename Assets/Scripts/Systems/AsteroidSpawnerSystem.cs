@@ -16,7 +16,7 @@ namespace Systems
 
         protected override void OnCreate()
         {
-            random = new Random(1);
+            random = new Random(56);
         }
 
         protected override void OnUpdate()
